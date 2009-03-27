@@ -11,6 +11,7 @@ Group:      Networking/Other
 URL:        http://sourceforge.net/projects/viewssld/
 Source:     http://voxel.dl.sourceforge.net/sourceforge/viewssld/%{name}-%{version}.tar.bz2
 Patch0:		viewssld-utils-fix.diff
+Patch1:		viewssld-make-docs.diff
 BuildRequires:  libnet1.1.2-devel
 BuildRequires:  openssl-devel >= 0.9.7
 BuildRequires:  pcap-devel
@@ -31,14 +32,17 @@ Network Intrusion Detection Systems (IDS).
 
 %setup -q 
 %patch0 -p1 -b .utils_fix_compillation
+%patch1 -p1 -b .dont_install_etc_viewssld_conf
 
 %build
+export LIBS="-lnet -ldssl -lssl"
 %configure2_5x
 %make
 
 
 %install
-
+%{__mkdir_p}  %{buildroot}/%{_sysconfdir}
+%{__mv} doc/examples/viewssld.conf %{buildroot}/%{_sysconfdir}
 %makeinstall_std
 
 %clean
@@ -49,8 +53,11 @@ Network Intrusion Detection Systems (IDS).
 %defattr(0755,root,root)
 %doc COPYING INSTALL README
 %doc doc/manual.doc doc/manual.pdf
-%doc doc/examples/viewssld.conf
+%{_sysconfdir}/viewssld.conf
 %{_sbindir}/viewssld
-%dir %{_sysconfdir}/imspector
 
+
+%changelog
+* Wed Mar 11 2009 Daniel Lucio <dlucio@mandriva.org> 0.6.0-1mdv2009.1
+- Import
 
