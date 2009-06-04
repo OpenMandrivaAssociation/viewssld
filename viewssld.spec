@@ -1,6 +1,6 @@
 %define name    viewssld
 %define version 0.6.0
-%define release %mkrel 1
+%define release %mkrel 2
 
 Name:		%{name}
 Version:	%{version}
@@ -12,13 +12,11 @@ URL:        http://sourceforge.net/projects/viewssld/
 Source:     http://voxel.dl.sourceforge.net/sourceforge/viewssld/%{name}-%{version}.tar.bz2
 Patch0:		viewssld-utils-fix.diff
 Patch1:		viewssld-make-docs.diff
-BuildRequires:  libnet1.1.2-devel
+BuildRequires:	net-devel >= 1.1.3
 BuildRequires:  openssl-devel >= 0.9.7
 BuildRequires:  pcap-devel
 BuildRequires:  dssl-devel
 Requires:	dssl
-Requires:	libnet1.1.2
-Requires:	libpcap
 Requires:	openssl
 
 %if %mdkversion < 200800
