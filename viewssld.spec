@@ -1,6 +1,6 @@
 %define name    viewssld
 %define version 0.6.0
-%define release %mkrel 4
+%define release %mkrel 5
 
 Name:		%{name}
 Version:	%{version}
