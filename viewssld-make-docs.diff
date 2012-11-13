@@ -1,0 +1,40 @@
+--- viewssld-0.6.0/doc/Makefile.in	2008-06-04 10:51:20.000000000 -0500
++++ viewssld-0.6.0.dlucio/doc/Makefile.in	2009-03-26 18:45:00.000000000 -0600
+@@ -180,29 +180,6 @@
+ $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
+ 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
+ install-man8: $(man8_MANS) $(man_MANS)
+-	@$(NORMAL_INSTALL)
+-	test -z "$(man8dir)" || $(MKDIR_P) "$(DESTDIR)$(man8dir)"
+-	@list='$(man8_MANS) $(dist_man8_MANS) $(nodist_man8_MANS)'; \
+-	l2='$(man_MANS) $(dist_man_MANS) $(nodist_man_MANS)'; \
+-	for i in $$l2; do \
+-	  case "$$i" in \
+-	    *.8*) list="$$list $$i" ;; \
+-	  esac; \
+-	done; \
+-	for i in $$list; do \
+-	  if test -f $(srcdir)/$$i; then file=$(srcdir)/$$i; \
+-	  else file=$$i; fi; \
+-	  ext=`echo $$i | sed -e 's/^.*\\.//'`; \
+-	  case "$$ext" in \
+-	    8*) ;; \
+-	    *) ext='8' ;; \
+-	  esac; \
+-	  inst=`echo $$i | sed -e 's/\\.[0-9a-z]*$$//'`; \
+-	  inst=`echo $$inst | sed -e 's/^.*\///'`; \
+-	  inst=`echo $$inst | sed '$(transform)'`.$$ext; \
+-	  echo " $(INSTALL_DATA) '$$file' '$(DESTDIR)$(man8dir)/$$inst'"; \
+-	  $(INSTALL_DATA) "$$file" "$(DESTDIR)$(man8dir)/$$inst"; \
+-	done
+ uninstall-man8:
+ 	@$(NORMAL_UNINSTALL)
+ 	@list='$(man8_MANS) $(dist_man8_MANS) $(nodist_man8_MANS)'; \
+@@ -360,7 +337,6 @@
+ 
+ 
+ install-data-local:
+-	test -z "/etc/viewssld.conf" || $(INSTALL) -m 600 examples/viewssld.conf /etc/viewssld.conf
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+ .NOEXPORT:

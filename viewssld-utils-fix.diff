@@ -1,0 +1,15 @@
+--- viewssld-0.6.0/src/utils.c	2008-06-04 10:51:20.000000000 -0500
++++ viewssld-0.6.0.dlucio/src/utils.c	2009-03-26 17:47:00.000000000 -0600
+@@ -46,10 +46,10 @@
+ void errorlog(char *message)
+ {
+ 	if (config.daemon)
+-		syslog(LOG_DAEMON|LOG_ERR, message);
++		syslog(LOG_DAEMON|LOG_ERR, "%s", message);
+ 	else
+ 	{
+-		fprintf(stderr, message);
++		fprintf(stderr, "%s", message);
+ 		putchar('\n');
+ 	}
+ 
