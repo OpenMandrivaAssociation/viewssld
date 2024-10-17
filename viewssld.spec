@@ -8,7 +8,7 @@ Release:	%{release}
 Summary:    SSL breaking daemon
 License:    GPL
 Group:      Networking/Other
-URL:        http://sourceforge.net/projects/viewssld/
+URL:        https://sourceforge.net/projects/viewssld/
 Source:     http://voxel.dl.sourceforge.net/sourceforge/viewssld/%{name}-%{version}.tar.bz2
 Patch0:		viewssld-utils-fix.diff
 Patch1:		viewssld-make-docs.diff
