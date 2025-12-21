@@ -12,6 +12,11 @@ URL:        https://sourceforge.net/projects/viewssld/
 Source:     http://voxel.dl.sourceforge.net/sourceforge/viewssld/%{name}-%{version}.tar.bz2
 Patch0:		viewssld-utils-fix.diff
 Patch1:		viewssld-make-docs.diff
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	net-devel >= 1.1.3
 BuildRequires:  openssl-devel >= 0.9.7
 BuildRequires:  pcap-devel
